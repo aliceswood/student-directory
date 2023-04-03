@@ -8,13 +8,13 @@ The student-directory script allows you to manage the list of students enrolled 
 ruby directory.rb
 ```
 ## Exercises (step 8)
-1. We're using the each() method to iterate over an array of students. How can you modify the program to print a number before the name of each student, e.g. "1. Dr. Hannibal Lecter"? Hint: look into each_with_index()
+1. We're using the each() method to iterate over an array of students. How can you modify the program to print a number before the name of each student, e.g. "1. Dr. Hannibal Lecter"? [Commit b9ecaf2](https://github.com/aliceswood/student-directory/commit/b9ecaf2cd9628ab13c534ddbffb1b6ebe9f22535).
 
-2. Modify your program to only print the students whose name begins with a specific letter.
+2. Modify your program to only print the students whose name begins with a specific letter. [Commit 5f0c045](https://github.com/aliceswood/student-directory/commit/5f0c045fb1b2543d60ef470cdc840c3aa9df6788).
 
-3. Modify your program to only print the students whose name is shorter than 12 characters.
+3. Modify your program to only print the students whose name is shorter than 12 characters. [Commit 61a123a](https://github.com/aliceswood/student-directory/commit/61a123a70e0910fc76de2451482352c63748d6a3).
 
-4. Rewrite the each() method that prints all students using while or until control flow methods (Loops).
+4. Rewrite the each() method that prints all students using while or until control flow methods (Loops). [Commit 0ec0d3f](https://github.com/aliceswood/student-directory/commit/0ec0d3fa4910fd5c8dff15acebebe78d32f50573).
 
 5. Our code only works with the student name and cohort. Add more information: hobbies, country of birth, height, etc.
 
