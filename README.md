@@ -29,3 +29,6 @@ ruby directory.rb
 10. We've been using the chomp() method to get rid of the last return character. Find another method among those provided by the String class that could be used for the same purpose (although it will require passing some arguments).
 
 11. Once you have completed the "Asking for user input" section, open this file. It's Ruby code but it has some typos. Copy it to a local file and open it in VS Code without syntax highlighting. To do this, change the language of the file from 'Ruby' to 'Plain Text' by clicking the blue word 'Ruby' in the bottom right corner and searching for 'plain text'.
+
+
+[def]: https://github.com/aliceswood/student-directory/commit/61a123a70e0910fc76de2451482352c63748d6a3
