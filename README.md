@@ -16,7 +16,7 @@ ruby directory.rb
 
 4. Rewrite the each() method that prints all students using while or until control flow methods (Loops). [Commit 0ec0d3f](https://github.com/aliceswood/student-directory/commit/0ec0d3fa4910fd5c8dff15acebebe78d32f50573).
 
-5. Our code only works with the student name and cohort. Add more information: hobbies, country of birth, height, etc.
+5. Our code only works with the student name and cohort. Add more information: hobbies, country of birth, height, etc. [Commit 7599df8](https://github.com/aliceswood/student-directory/commit/7599df8e596c9e1a9a611f13741836a6761eb312)
 
 6. Research how the method center() of the String class works. Use it in your code to make the output beautifully aligned.
 
