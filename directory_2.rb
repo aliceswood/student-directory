@@ -1,15 +1,30 @@
 @students = []
 
-def input_students
-  puts "Please enter the name of students"
-  puts "To finish, just hit return twice"
+def add_student
+  puts "do you wish to add a student? (yes/no)"
+  user_choice = gets.chomp
 
-  name = gets.chomp
-  while !name.empty? do
-    @students << {name: name, cohort: :november}
-    puts "Now we have #{@students.count} students"
+  if user_choice == "yes"
+    true
+  elsif user_choice == "no"
+    false
+  end
 
+  while user_choice == "yes"
+    puts "please enter the name of the student"
     name = gets.chomp
+    puts "please enter a hobby"
+    hobby = gets.chomp
+    puts "please enter country of birth"
+    country = gets.chomp
+    puts "please enter height"
+    puts "to finish, press enter twice"
+    height = gets.chomp
+
+    @students << {name: name, cohort: :november, hobby: hobby, country: country, height: height}
+    puts "We now have #{@students.count} students"
+    puts "Would you like to add another student? (yes/no)"
+    user_choice = gets.chomp
   end
   @students
 end
@@ -22,7 +37,7 @@ end
 def print(name)
   n = 0
   while n < name.count
-  puts "#{@students[n][:name]} (#{@students[n][:cohort]} cohort)"
+  puts "#{@students[n][:name]}, (#{@students[n][:cohort]} cohort), likes #{@students[n][:hobby]}, is from #{@students[n][:country]}, has a height of #{@students[n][:height]}"
   n += 1
   end
 end
@@ -31,7 +46,7 @@ def print_footer(name)
  puts "Overall, we have #{name.count} great students"
 end
 
-students = input_students
+students = add_student
 print_header
 print(students)
 print_footer(students)
