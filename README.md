@@ -18,7 +18,7 @@ ruby directory.rb
 
 5. Our code only works with the student name and cohort. Add more information: hobbies, country of birth, height, etc. [Commit 7599df8](https://github.com/aliceswood/student-directory/commit/7599df8e596c9e1a9a611f13741836a6761eb312)
 
-6. Research how the method center() of the String class works. Use it in your code to make the output beautifully aligned.
+6. Research how the method center() of the String class works. Use it in your code to make the output beautifully aligned. [Commit 8678f91](https://github.com/aliceswood/student-directory/commit/8678f914a596a7f564890efc99aba6b08b7a8c11)
 
 7. In the input_students method the cohort value is hard-coded. How can you ask for both the name and the cohort? What if one of the values is empty? Can you supply a default value? The input will be given to you as a string? How will you convert it to a symbol? What if the user makes a typo?
 
