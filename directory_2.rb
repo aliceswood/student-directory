@@ -1,3 +1,4 @@
+@default_filename = "students.csv"
 @students = [
   # {name: "Dr Evil", cohort: "July"},
   # {name: "Voldemort", cohort: "June"},
@@ -113,7 +114,7 @@ def show_students
 end
 
 def save_students
-  file = File.open("students.csv", "w")
+  file = File.open(@default_filename, "w")
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
@@ -122,23 +123,26 @@ def save_students
   file.close
 end
 
-def load_students(filename = "students.csv")
+def load_students(filename = @default_filename)
   file = File.open(filename, "r")
   file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
    add_student(name, cohort)
   end
   file.close
-  puts "your file is ready"
+  puts "your file 'students.csv' is ready"
 end
 
 def try_load_students
   filename = ARGV.first
-  return if filename.nil?
-  if File.exist?(filename)
+  if filename.nil?
+    puts "We need a file name - #{@default_filename} has been loaded by default."
+    load_students(@default_filename)
+  elsif File.exist?(filename)
     load_students(filename)
     puts "Loaded #{@students.count} from #{filename}"
   else
+    load_students(@default_filename)
     puts "Sorry, #{filename} doesn't exist."
     exit
   end
@@ -173,4 +177,7 @@ def print_footer
   end
 end
 
+try_load_students
+# is it working as it should do when i try to load the students?
+#  i think i have amended the right files for students.csv to be the default - load, save and try to load
 interactive_menu
