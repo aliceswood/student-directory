@@ -1,8 +1,8 @@
 @students = [
-  {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
-  {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
-  {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
-  {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
+  # {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
+  # {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
+  # {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
+  # {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
   {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
 ]
 @width = 50
@@ -87,9 +87,7 @@ end
 
 def print_header
   puts "the students of Villains Academy"
-
   puts "---------------"
-
 end
 
 def print(name)
@@ -102,8 +100,11 @@ def print(name)
 end
 
 def print_footer(name)
- puts "Overall, we have #{name.count} great students"
-
+  if name.count == 1
+    puts "Overall, we have 1 great student"
+  else
+    puts "Overall, we have #{name.count} great students"
+  end
 end
 
 def print_students_by_cohort
@@ -121,7 +122,8 @@ def print_students_by_cohort
   end
 end
 
-# students = add_student
-# print_header
-print_students_by_cohort
-# print_footer(students)
+students = add_student
+print_header
+print(students)
+# print_students_by_cohort
+print_footer(students)
