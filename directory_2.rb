@@ -1,9 +1,9 @@
 @students = [
-  {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
-  {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
-  {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
-  {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
-  {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
+  # {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
+  # {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
+  # {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
+  # {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
+  # {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
 ]
 @width = 50
 
@@ -93,7 +93,8 @@ def print_students_list
   else
     n = 0
     while n < @students.count
-    puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort), likes #{@students[n][:hobby]}, is from #{@students[n][:country]}, has a height of #{@students[n][:height]}cm"
+    puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort)"
+    # puts they like #{@students[n][:hobby]}, is from #{@students[n][:country]}, has a height of #{@students[n][:height]}cm"
     n += 1
     end
   end
@@ -133,7 +134,8 @@ def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
   puts "3. Save the list of students to students.csv"
-  puts "4. Show students by cohort"
+  puts "4. Load the list from students.csv"
+  puts "5. Show students by cohort"
   puts "9. Exit"
 end
 
@@ -152,6 +154,8 @@ def process(selection)
     when "3"
       save_students
     when "4"
+      load_students
+    when "5"
       print_students_by_cohort
     when "9"
       exit
@@ -165,7 +169,16 @@ def save_students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
-    file. puts csv_line
+    file.puts csv_line
+  end
+  file.close
+end
+
+def load_students
+  file = File.open("students.csv", "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(',')
+    @students << { name: name, cohort: cohort.to_sym }
   end
   file.close
 end
