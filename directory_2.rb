@@ -1,9 +1,9 @@
 @students = [
-  # {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
-  # {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
-  # {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
-  # {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
-  # {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
+  {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
+  {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
+  {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
+  {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
+  {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
 ]
 @width = 50
 
@@ -92,7 +92,7 @@ def print_students_list
     puts "we have no students"
   else
     n = 0
-    while n < name.count
+    while n < @students.count
     puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort), likes #{@students[n][:hobby]}, is from #{@students[n][:country]}, has a height of #{@students[n][:height]}cm"
     n += 1
     end
@@ -100,10 +100,10 @@ def print_students_list
 end
 
 def print_footer
-  if name.count == 1
+  if @students.length == 1
     puts "Overall, we have 1 great student"
   else
-    puts "Overall, we have #{name.count} great students"
+    puts "Overall, we have #{@students.count} great students"
   end
 end
 
