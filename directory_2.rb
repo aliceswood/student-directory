@@ -125,8 +125,31 @@ def print_students_by_cohort
   end
 end
 
-students = add_student
-print_header
-print(students)
-print_footer(students)
-# print_students_by_cohort
+def interactive_menu
+  students = []
+  loop do
+    puts "1. Input the students"
+    puts "2. Show the students"
+    puts "3. Show students by cohort"
+    puts "9. Exit"
+
+    selection = gets.chomp
+
+    case selection
+    when "1"
+      students = add_student
+    when "2"
+      print_header
+      print(students)
+      print_footer(students)
+    when "3"
+      print_students_by_cohort
+    when "9"
+      exit
+    else 
+      puts "I don't know what you meant, try again"
+    end
+  end
+end
+
+interactive_menu
