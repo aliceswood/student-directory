@@ -36,7 +36,7 @@ ruby directory.rb
 
 13. After we added the code to load the students from file, we ended up with adding the students to @students in two places. The lines in load_students() and input_students() are almost the same. This violates the DRY (Don't Repeat Yourself) principle. How can you extract them into a method to fix this problem? [Commit 68f7c91](https://github.com/aliceswood/student-directory/commit/68f7c911319ca858d596f8397b0ef5945d71ca5b).
 
-14. How could you make the program load students.csv by default if no file is given on startup? Which methods would you need to change?
+14. How could you make the program load students.csv by default if no file is given on startup? Which methods would you need to change? [Commit f951328](https://github.com/aliceswood/student-directory/commit/f951328f61700eb86a1589fa07fed2e208ee2a55).
 
 15. Continue refactoring the code. Which method is a bit too long? What method names are not clear enough? Anything else you'd change to make your code look more elegant? Why?
 
