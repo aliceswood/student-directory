@@ -20,7 +20,7 @@ ruby directory.rb
 
 6. Research how the method center() of the String class works. Use it in your code to make the output beautifully aligned. [Commit 8678f91](https://github.com/aliceswood/student-directory/commit/8678f914a596a7f564890efc99aba6b08b7a8c11)
 
-7. In the input_students method the cohort value is hard-coded. How can you ask for both the name and the cohort? What if one of the values is empty? Can you supply a default value? The input will be given to you as a string? How will you convert it to a symbol? What if the user makes a typo?
+7. In the add_student method the cohort value is hard-coded. How can you ask for both the name and the cohort? What if one of the values is empty? Can you supply a default value? The input will be given to you as a string? How will you convert it to a symbol? What if the user makes a typo? [Commit 2c1732b](https://github.com/aliceswood/student-directory/commit/2c1732be7aff3a6c5e4b39ca8700a3ce9cc99607)
 
 8. Once you complete the previous exercise, change the way the users are displayed: print them grouped by cohorts. To do this, you'll need to get a list of all existing cohorts (the map() method may be useful but it's not the only option), iterate over it and only print the students from that cohort.
 
