@@ -11,7 +11,7 @@ def cohort_choice
   upcoming_cohort = :May
   puts "Please enter the number of the monthly cohort they will be joining"
 
-  cohort = gets.chomp.capitalize
+  cohort = gets.strip.capitalize
 
   case cohort
   when "1"
@@ -52,7 +52,7 @@ end
 def add_student
   puts "do you wish to add a student? (yes/no)"
 
-  user_choice = gets.chomp
+  user_choice = gets.strip
 
   if user_choice == "yes"
     true
@@ -63,24 +63,24 @@ def add_student
   while user_choice == "yes"
     puts "please enter the name of the student"
 
-    name = gets.chomp
+    name = gets.strip
     cohort = cohort_choice
     puts "please enter a hobby"
 
-    hobby = gets.chomp
+    hobby = gets.strip
     puts "please enter country of birth"
 
-    country = gets.chomp
+    country = gets.strip
     puts "please enter height in cm"
 
-    height = gets.chomp
+    height = gets.strip
 
     @students << {name: name, cohort: cohort, hobby: hobby, country: country, height: height}
     puts "We now have #{@students.count} students"
 
     puts "Would you like to add another student? (yes/no)"
 
-    user_choice = gets.chomp
+    user_choice = gets.strip
   end
   @students
 end
@@ -109,7 +109,7 @@ end
 
 def print_students_by_cohort
   puts "which cohort would you like to view? (please enter name of month)"
-  cohort_selection = gets.chomp.capitalize
+  cohort_selection = gets.strip.capitalize
   
   if @students.empty?
     puts "we have no students"
@@ -125,5 +125,5 @@ end
 students = add_student
 print_header
 print(students)
-# print_students_by_cohort
 print_footer(students)
+# print_students_by_cohort
