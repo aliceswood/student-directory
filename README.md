@@ -24,7 +24,7 @@ ruby directory.rb
 
 8. Once you complete the previous exercise, change the way the users are displayed: print them grouped by cohorts. To do this, you'll need to get a list of all existing cohorts (the map() method may be useful but it's not the only option), iterate over it and only print the students from that cohort. [Commit 2313e50](https://github.com/aliceswood/student-directory/commit/2313e509bd17ddc9d21522a866e5b5e0f183beb8)
 
-9. Right now if we have only one student, the user will see a message "Now we have 1 students", whereas it should be "Now we have 1 student". How can you fix it so that it uses the singular form when appropriate and plural form otherwise?
+9. Right now if we have only one student, the user will see a message "Now we have 1 students", whereas it should be "Now we have 1 student". How can you fix it so that it uses the singular form when appropriate and plural form otherwise? [Commit 6c7b653](https://github.com/aliceswood/student-directory/commit/6c7b653b4ee0166139736a29aac23087fa3fd681)
 
 10. We've been using the chomp() method to get rid of the last return character. Find another method among those provided by the String class that could be used for the same purpose (although it will require passing some arguments).
 
