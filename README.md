@@ -32,4 +32,22 @@ ruby directory.rb
 
 12. What happens if the user doesn't enter any students? It will try to print an empty list. How can you use an if statement (Control Flow) to only print the list if there is at least one student in there? [Commit cc64940](https://github.com/aliceswood/student-directory/commit/cc64940c6373c735d3052de90c814030b3842a61).
 
+## Exercises (step 14)
+
+13. After we added the code to load the students from file, we ended up with adding the students to @students in two places. The lines in load_students() and input_students() are almost the same. This violates the DRY (Don't Repeat Yourself) principle. How can you extract them into a method to fix this problem?
+
+14. How could you make the program load students.csv by default if no file is given on startup? Which methods would you need to change?
+
+15. Continue refactoring the code. Which method is a bit too long? What method names are not clear enough? Anything else you'd change to make your code look more elegant? Why?
+
+16. Right now, when the user choses an option from our menu, there's no way of them knowing if the action was successful. Can you fix this and implement feedback messages for the user?
+
+17. The filename we use to save and load data (menu items 3 and 4) is hardcoded. Make the script more flexible by asking for the filename if the user chooses these menu items.
+
+18. We are opening and closing the files manually. Read the documentation of the File class to find out how to use a code block (do...end) to access a file, so that we didn't have to close it explicitly (it will be closed automatically when the block finishes). Refactor the code to use a code block.
+
+19. We are de-facto using CSV format to store data. However, Ruby includes a library to work with the CSV files that we could use instead of working directly with the files. Refactor the code to use this library.
+
+20. Write a short program that reads its own source code (search Stack Overflow to find out how to get the name of the currently executed file) and prints it on the screen.
+
 [def]: https://github.com/aliceswood/student-directory/commit/61a123a70e0910fc76de2451482352c63748d6a3
