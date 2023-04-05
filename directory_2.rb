@@ -40,11 +40,9 @@ def cohort_choice
     cohort = :December
   when "" 
     puts "No cohort selected - they have been added to the next cohort to start which is: #{upcoming_cohort}"
-
     cohort = upcoming_cohort
   else 
     puts "Cohort not recognised - they have been added to the next cohort to start which is: #{upcoming_cohort}"
-
     cohort = upcoming_cohort
   end
 end
@@ -82,7 +80,6 @@ def add_student
 
     user_choice = gets.strip
   end
-  @students
 end
 
 def print_header
@@ -90,7 +87,7 @@ def print_header
   puts "---------------"
 end
 
-def print(name)
+def print_students_list
   if @students.empty?
     puts "we have no students"
   else
@@ -102,7 +99,7 @@ def print(name)
   end
 end
 
-def print_footer(name)
+def print_footer
   if name.count == 1
     puts "Overall, we have 1 great student"
   else
@@ -126,30 +123,51 @@ def print_students_by_cohort
 end
 
 def interactive_menu
-  students = []
   loop do
-    puts "1. Input the students"
-    puts "2. Show the students"
-    puts "3. Show students by cohort"
-    puts "9. Exit"
+    print_menu
+    process(gets.chomp) 
+  end
+end
 
-    selection = gets.chomp
+def print_menu
+  puts "1. Input the students"
+  puts "2. Show the students"
+  puts "3. Save the list of students to students.csv"
+  puts "4. Show students by cohort"
+  puts "9. Exit"
+end
 
-    case selection
+def show_students
+  print_header
+  print_students_list
+  print_footer
+end
+
+def process(selection)
+  case selection
     when "1"
       students = add_student
     when "2"
-      print_header
-      print(students)
-      print_footer(students)
+      show_students
     when "3"
+      save_students
+    when "4"
       print_students_by_cohort
     when "9"
       exit
     else 
       puts "I don't know what you meant, try again"
-    end
   end
+end
+
+def save_students
+  file = File.open("students.csv", "w")
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]]
+    csv_line = student_data.join(",")
+    file. puts csv_line
+  end
+  file.close
 end
 
 interactive_menu
