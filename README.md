@@ -26,9 +26,10 @@ ruby directory.rb
 
 9. Right now if we have only one student, the user will see a message "Now we have 1 students", whereas it should be "Now we have 1 student". How can you fix it so that it uses the singular form when appropriate and plural form otherwise? [Commit 6c7b653](https://github.com/aliceswood/student-directory/commit/6c7b653b4ee0166139736a29aac23087fa3fd681).
 
-10. We've been using the chomp() method to get rid of the last return character. Find another method among those provided by the String class that could be used for the same purpose (although it will require passing some arguments). [Commit 99c67e9](https://github.com/aliceswood/student-directory/commit/99c67e9864b0e7bc8e508045219bf1b56e7b7cbd)
+10. We've been using the chomp() method to get rid of the last return character. Find another method among those provided by the String class that could be used for the same purpose (although it will require passing some arguments). [Commit 99c67e9](https://github.com/aliceswood/student-directory/commit/99c67e9864b0e7bc8e508045219bf1b56e7b7cbd).
 
-11. Once you have completed the "Asking for user input" section, open this file. It's Ruby code but it has some typos. Copy it to a local file and open it in VS Code without syntax highlighting. To do this, change the language of the file from 'Ruby' to 'Plain Text' by clicking the blue word 'Ruby' in the bottom right corner and searching for 'plain text'.
+11. Once you have completed the "Asking for user input" section, open this file. It's Ruby code but it has some typos. Copy it to a local file and open it in VS Code without syntax highlighting. To do this, change the language of the file from 'Ruby' to 'Plain Text' by clicking the blue word 'Ruby' in the bottom right corner and searching for 'plain text'.[Commit 81d8a2e](https://github.com/aliceswood/student-directory/commit/81d8a2ee667f2adc67dd9526d33c69e1a7f3168c).
 
+12. What happens if the user doesn't enter any students? It will try to print an empty list. How can you use an if statement (Control Flow) to only print the list if there is at least one student in there?
 
 [def]: https://github.com/aliceswood/student-directory/commit/61a123a70e0910fc76de2451482352c63748d6a3
