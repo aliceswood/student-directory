@@ -22,7 +22,7 @@ ruby directory.rb
 
 7. In the add_student method the cohort value is hard-coded. How can you ask for both the name and the cohort? What if one of the values is empty? Can you supply a default value? The input will be given to you as a string? How will you convert it to a symbol? What if the user makes a typo? [Commit 2c1732b](https://github.com/aliceswood/student-directory/commit/2c1732be7aff3a6c5e4b39ca8700a3ce9cc99607)
 
-8. Once you complete the previous exercise, change the way the users are displayed: print them grouped by cohorts. To do this, you'll need to get a list of all existing cohorts (the map() method may be useful but it's not the only option), iterate over it and only print the students from that cohort.
+8. Once you complete the previous exercise, change the way the users are displayed: print them grouped by cohorts. To do this, you'll need to get a list of all existing cohorts (the map() method may be useful but it's not the only option), iterate over it and only print the students from that cohort. [Commit 2313e50](https://github.com/aliceswood/student-directory/commit/2313e509bd17ddc9d21522a866e5b5e0f183beb8)
 
 9. Right now if we have only one student, the user will see a message "Now we have 1 students", whereas it should be "Now we have 1 student". How can you fix it so that it uses the singular form when appropriate and plural form otherwise?
 
