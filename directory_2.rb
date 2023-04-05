@@ -1,11 +1,70 @@
 @students = [
-  # {name: "Dr Evil", cohort: "July", hobby: "being evil", country: "Belgium", height: 173},
-  # {name: "Voldemort", cohort: "June", hobby: "being evil", country: "England", height: 180},
-  # {name: "The Joker", cohort: "June", hobby: "being evil", country: "USA", height: 187},
-  # {name: "Darth Vader", cohort: "August", hobby: "being evil", country: "Tatooine", height: 190},
-  # {name: "Freddie Krueger", cohort: "June", hobby: "being evil", country: "Springwood", height: 175}
+  # {name: "Dr Evil", cohort: "July"},
+  # {name: "Voldemort", cohort: "June"},
+  # {name: "The Joker", cohort: "June"},
+  # {name: "Darth Vader", cohort: "August"},
+  # {name: "Freddie Krueger", cohort: "June"}
 ]
-@width = 50
+
+def interactive_menu
+  loop do
+    print_menu
+    process(STDIN.gets.chomp) 
+  end
+end
+
+def print_menu
+  puts "Main Menu"
+  puts "1. Input the students"
+  puts "2. Show the students"
+  puts "3. Save the list of students to students.csv"
+  puts "4. Load the list from students.csv"
+  puts "9. Exit"
+end
+
+def process(selection)
+  case selection
+    when "1"
+      students = input_student
+    when "2"
+      show_students
+    when "3"
+      save_students
+    when "4"
+      load_students
+    when "9"
+      exit
+    else 
+      puts "I don't know what you meant, try again"
+  end
+end
+
+def input_student
+  puts "do you wish to add a student? (yes/no)"
+
+  user_choice = STDIN.gets.strip
+
+  if user_choice == "yes"
+    true
+  elsif user_choice == "no"
+    false
+  end
+
+  while user_choice == "yes"
+    puts "please enter the name of the student"
+
+    name = gets.strip
+    cohort = cohort_choice
+
+    add_student(name, cohort)
+      
+    puts "We now have #{@students.count} students"
+
+    puts "Would you like to add another student? (yes/no)"
+
+    user_choice = gets.strip
+  end
+end
 
 def cohort_choice
   upcoming_cohort = :May
@@ -47,39 +106,46 @@ def cohort_choice
   end
 end
 
-def add_student
-  puts "do you wish to add a student? (yes/no)"
+def show_students
+  print_header
+  print_students_list
+  print_footer
+end
 
-  user_choice = gets.strip
-
-  if user_choice == "yes"
-    true
-  elsif user_choice == "no"
-    false
+def save_students
+  file = File.open("students.csv", "w")
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]]
+    csv_line = student_data.join(",")
+    file.puts csv_line
   end
+  file.close
+end
 
-  while user_choice == "yes"
-    puts "please enter the name of the student"
-
-    name = gets.strip
-    cohort = cohort_choice
-    puts "please enter a hobby"
-
-    hobby = gets.strip
-    puts "please enter country of birth"
-
-    country = gets.strip
-    puts "please enter height in cm"
-
-    height = gets.strip
-
-    @students << {name: name, cohort: cohort, hobby: hobby, country: country, height: height}
-    puts "We now have #{@students.count} students"
-
-    puts "Would you like to add another student? (yes/no)"
-
-    user_choice = gets.strip
+def load_students(filename = "students.csv")
+  file = File.open(filename, "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(',')
+   add_student(name, cohort)
   end
+  file.close
+  puts "your file is ready"
+end
+
+def try_load_students
+  filename = ARGV.first
+  return if filename.nil?
+  if File.exist?(filename)
+    load_students(filename)
+    puts "Loaded #{@students.count} from #{filename}"
+  else
+    puts "Sorry, #{filename} doesn't exist."
+    exit
+  end
+end
+
+def add_student(name, cohort)
+  @students << { name: name, cohort: cohort.to_sym }
 end
 
 def print_header
@@ -93,9 +159,8 @@ def print_students_list
   else
     n = 0
     while n < @students.count
-    puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort)"
-    # puts they like #{@students[n][:hobby]}, is from #{@students[n][:country]}, has a height of #{@students[n][:height]}cm"
-    n += 1
+      puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort)"
+     n += 1
     end
   end
 end
@@ -106,81 +171,6 @@ def print_footer
   else
     puts "Overall, we have #{@students.count} great students"
   end
-end
-
-def print_students_by_cohort
-  puts "which cohort would you like to view? (please enter name of month)"
-  cohort_selection = gets.strip.capitalize
-  
-  if @students.empty?
-    puts "we have no students"
-  else 
-    @students.each do |student|
-      if student[:cohort] == cohort_selection
-        puts student[:name]
-      end
-    end
-  end
-end
-
-def interactive_menu
-  loop do
-    print_menu
-    process(gets.chomp) 
-  end
-end
-
-def print_menu
-  puts "1. Input the students"
-  puts "2. Show the students"
-  puts "3. Save the list of students to students.csv"
-  puts "4. Load the list from students.csv"
-  puts "5. Show students by cohort"
-  puts "9. Exit"
-end
-
-def show_students
-  print_header
-  print_students_list
-  print_footer
-end
-
-def process(selection)
-  case selection
-    when "1"
-      students = add_student
-    when "2"
-      show_students
-    when "3"
-      save_students
-    when "4"
-      load_students
-    when "5"
-      print_students_by_cohort
-    when "9"
-      exit
-    else 
-      puts "I don't know what you meant, try again"
-  end
-end
-
-def save_students
-  file = File.open("students.csv", "w")
-  @students.each do |student|
-    student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
-    file.puts csv_line
-  end
-  file.close
-end
-
-def load_students
-  file = File.open("students.csv", "r")
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(',')
-    @students << { name: name, cohort: cohort.to_sym }
-  end
-  file.close
 end
 
 interactive_menu
