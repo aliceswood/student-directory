@@ -48,6 +48,6 @@ ruby directory.rb
 
 19. We are de-facto using CSV format to store data. However, Ruby includes a library to work with the CSV files that we could use instead of working directly with the files. Refactor the code to use this library. [Commit 74085e6](https://github.com/aliceswood/student-directory/commit/74085e664b148a6f163bca51609a11f3b5da012e).
 
-20. Write a short program that reads its own source code (search Stack Overflow to find out how to get the name of the currently executed file) and prints it on the screen.
+20. Write a short program that reads its own source code (search Stack Overflow to find out how to get the name of the currently executed file) and prints it on the screen. [Commit 11bed7c](https://github.com/aliceswood/student-directory/commit/11bed7c505a6176d1d5d38ba4228389e4eba98c5?diff=split).
 
 [def]: https://github.com/aliceswood/student-directory/commit/61a123a70e0910fc76de2451482352c63748d6a3
