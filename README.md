@@ -40,9 +40,9 @@ ruby directory.rb
 
 15. Continue refactoring the code. Which method is a bit too long? What method names are not clear enough? Anything else you'd change to make your code look more elegant? Why? [Commit 1608cf8](https://github.com/aliceswood/student-directory/commit/1608cf813341cfe79532faa1cf3fcbccdbba045e).
 
-16. Right now, when the user choses an option from our menu, there's no way of them knowing if the action was successful. Can you fix this and implement feedback messages for the user? [Commit 034ec96](https://github.com/aliceswood/student-directory/commit/034ec963bc7434a5d12b8fc4cee62b4d42c20df6)
+16. Right now, when the user choses an option from our menu, there's no way of them knowing if the action was successful. Can you fix this and implement feedback messages for the user? [Commit 034ec96](https://github.com/aliceswood/student-directory/commit/034ec963bc7434a5d12b8fc4cee62b4d42c20df6).
 
-17. The filename we use to save and load data (menu items 3 and 4) is hardcoded. Make the script more flexible by asking for the filename if the user chooses these menu items.
+17. The filename we use to save and load data (menu items 3 and 4) is hardcoded. Make the script more flexible by asking for the filename if the user chooses these menu items. [Commit 80fcbfb](https://github.com/aliceswood/student-directory/commit/80fcbfb19798d257e794c4045d0ce99067b24bd9).
 
 18. We are opening and closing the files manually. Read the documentation of the File class to find out how to use a code block (do...end) to access a file, so that we didn't have to close it explicitly (it will be closed automatically when the block finishes). Refactor the code to use a code block.
 
