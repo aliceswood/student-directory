@@ -38,7 +38,7 @@ ruby directory.rb
 
 14. How could you make the program load students.csv by default if no file is given on startup? Which methods would you need to change? [Commit f951328](https://github.com/aliceswood/student-directory/commit/f951328f61700eb86a1589fa07fed2e208ee2a55).
 
-15. Continue refactoring the code. Which method is a bit too long? What method names are not clear enough? Anything else you'd change to make your code look more elegant? Why?
+15. Continue refactoring the code. Which method is a bit too long? What method names are not clear enough? Anything else you'd change to make your code look more elegant? Why? [Commit 1608cf8](https://github.com/aliceswood/student-directory/commit/1608cf813341cfe79532faa1cf3fcbccdbba045e).
 
 16. Right now, when the user choses an option from our menu, there's no way of them knowing if the action was successful. Can you fix this and implement feedback messages for the user?
 
