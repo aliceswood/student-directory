@@ -46,7 +46,7 @@ ruby directory.rb
 
 18. We are opening and closing the files manually. Read the documentation of the File class to find out how to use a code block (do...end) to access a file, so that we didn't have to close it explicitly (it will be closed automatically when the block finishes). Refactor the code to use a code block. [Commit 011ac40](https://github.com/aliceswood/student-directory/commit/011ac401bad8fb875f0c249fb2ffce969b8b4c95).
 
-19. We are de-facto using CSV format to store data. However, Ruby includes a library to work with the CSV files that we could use instead of working directly with the files. Refactor the code to use this library. 
+19. We are de-facto using CSV format to store data. However, Ruby includes a library to work with the CSV files that we could use instead of working directly with the files. Refactor the code to use this library. [Commit 74085e6](https://github.com/aliceswood/student-directory/commit/74085e664b148a6f163bca51609a11f3b5da012e).
 
 20. Write a short program that reads its own source code (search Stack Overflow to find out how to get the name of the currently executed file) and prints it on the screen.
 
