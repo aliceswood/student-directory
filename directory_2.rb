@@ -41,17 +41,17 @@ def process(selection)
 end
 
 def input_student
-  puts 'do you wish to add a student? (yes/no)'
+  puts 'you have chosen to add a student, please confirm this is correct. (Y/N)'
 
-  user_choice = STDIN.gets.strip
+  user_choice = STDIN.gets.strip.capitalize
 
-  if user_choice == 'yes'
+  if user_choice == 'Yes' || user_choice == 'Y'
     true
-  elsif user_choice == 'no'
+  elsif user_choice == 'No' || user_choice == 'N'
     false
   end
 
-  while user_choice == 'yes'
+  while user_choice == 'Yes' || user_choice == 'Y'
     puts 'please enter the name of the student'
 
     name = gets.strip
@@ -63,7 +63,7 @@ def input_student
 
     puts 'Would you like to add another student? (yes/no)'
 
-    user_choice = gets.strip
+    user_choice = gets.strip.capitalize
   end
 end
 
@@ -108,6 +108,7 @@ def cohort_choice
 end
 
 def show_students
+
   print_header
   print_students_list
   print_footer
@@ -121,6 +122,7 @@ def save_students
     file.puts csv_line
   end
   file.close
+  puts 'Your file has been saved successfully!'
 end
 
 def load_students(filename = @default_filename)
@@ -130,7 +132,7 @@ def load_students(filename = @default_filename)
     add_student(name, cohort)
   end
   file.close
-  puts "your file 'students.csv' is ready"
+  puts 'Your file has loaded successfully'
 end
 
 def try_load_students
