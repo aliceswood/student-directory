@@ -1,11 +1,17 @@
 # student-directory
 
-The student-directory script allows you to manage the list of students enrolled at Villains Academy.
+The student-directory script allows you to manage the list of students enrolled at Villains Academy. This is my first GitHub project for Makers Academy
+
+## Objectives of the project
+
+Working through the below exercises to get a basic understanding of Ruby and getting more familiar with the use of GitHub.
 
 ## How to use
 
 ```shell
-ruby directory.rb
+git clone https://github.com/aliceswood/student-directory.git
+cd student-directory
+ruby directory.rb file.csv
 ```
 ## Exercises (step 8)
 1. We're using the each() method to iterate over an array of students. How can you modify the program to print a number before the name of each student, e.g. "1. Dr. Hannibal Lecter"? [Commit b9ecaf2](https://github.com/aliceswood/student-directory/commit/b9ecaf2cd9628ab13c534ddbffb1b6ebe9f22535).
