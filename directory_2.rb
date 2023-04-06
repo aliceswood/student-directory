@@ -1,4 +1,4 @@
-@default_filename = "students.csv"
+@default_filename = 'students.csv'
 @students = [
   # {name: "Dr Evil", cohort: "July"},
   # {name: "Voldemort", cohort: "June"},
@@ -10,58 +10,58 @@
 def interactive_menu
   loop do
     print_menu
-    process(STDIN.gets.chomp) 
+    process(STDIN.gets.chomp)
   end
 end
 
 def print_menu
-  puts "Main Menu"
-  puts "1. Input the students"
-  puts "2. Show the students"
-  puts "3. Save the list of students to students.csv"
-  puts "4. Load the list from students.csv"
-  puts "9. Exit"
+  puts 'Main Menu'
+  puts '1. Input the students'
+  puts '2. Show the students'
+  puts '3. Save the list of students to students.csv'
+  puts '4. Load the list from students.csv'
+  puts '9. Exit'
 end
 
 def process(selection)
   case selection
-    when "1"
-      students = input_student
-    when "2"
-      show_students
-    when "3"
-      save_students
-    when "4"
-      load_students
-    when "9"
-      exit
-    else 
-      puts "I don't know what you meant, try again"
+  when '1'
+    students = input_student
+  when '2'
+    show_students
+  when '3'
+    save_students
+  when '4'
+    load_students
+  when '9'
+    exit
+  else
+    puts "I don't know what you meant, try again"
   end
 end
 
 def input_student
-  puts "do you wish to add a student? (yes/no)"
+  puts 'do you wish to add a student? (yes/no)'
 
   user_choice = STDIN.gets.strip
 
-  if user_choice == "yes"
+  if user_choice == 'yes'
     true
-  elsif user_choice == "no"
+  elsif user_choice == 'no'
     false
   end
 
-  while user_choice == "yes"
-    puts "please enter the name of the student"
+  while user_choice == 'yes'
+    puts 'please enter the name of the student'
 
     name = gets.strip
     cohort = cohort_choice
 
     add_student(name, cohort)
-      
+
     puts "We now have #{@students.count} students"
 
-    puts "Would you like to add another student? (yes/no)"
+    puts 'Would you like to add another student? (yes/no)'
 
     user_choice = gets.strip
   end
@@ -69,39 +69,39 @@ end
 
 def cohort_choice
   upcoming_cohort = :May
-  puts "Please enter the number of the monthly cohort they will be joining"
+  puts 'Please enter the number of the monthly cohort they will be joining'
 
-  cohort = gets.strip.capitalize
+  cohort = gets.strip
 
   case cohort
-  when "1"
+  when '1'
     cohort = :January
-  when "2"
+  when '2'
     cohort = :February
-  when "3"
+  when '3'
     cohort = :March
-  when "4"
+  when '4'
     cohort = :April
-  when "5"
+  when '5'
     cohort = :May
-  when "6"
+  when '6'
     cohort = :June
-  when "7"
+  when '7'
     cohort = :July
-  when "8"
+  when '8'
     cohort = :August
-  when "9"
+  when '9'
     cohort = :September
-  when "10"
+  when '10'
     cohort = :October
-  when "11"
+  when '11'
     cohort = :November
-  when "12"
+  when '12'
     cohort = :December
-  when "" 
+  when ''
     puts "No cohort selected - they have been added to the next cohort to start which is: #{upcoming_cohort}"
     cohort = upcoming_cohort
-  else 
+  else
     puts "Cohort not recognised - they have been added to the next cohort to start which is: #{upcoming_cohort}"
     cohort = upcoming_cohort
   end
@@ -114,20 +114,20 @@ def show_students
 end
 
 def save_students
-  file = File.open(@default_filename, "w")
+  file = File.open(@default_filename, 'w')
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
+    csv_line = student_data.join(',')
     file.puts csv_line
   end
   file.close
 end
 
 def load_students(filename = @default_filename)
-  file = File.open(filename, "r")
+  file = File.open(filename, 'r')
   file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
-   add_student(name, cohort)
+    add_student(name, cohort)
   end
   file.close
   puts "your file 'students.csv' is ready"
@@ -153,31 +153,27 @@ def add_student(name, cohort)
 end
 
 def print_header
-  puts "the students of Villains Academy"
-  puts "---------------"
+  puts 'the students of Villains Academy'
+  puts '---------------'
 end
 
 def print_students_list
   if @students.empty?
-    puts "we have no students"
+    puts 'we have no students'
   else
-    n = 0
-    while n < @students.count
-      puts "#{n + 1}. #{@students[n][:name]}, (#{@students[n][:cohort]} cohort)"
-     n += 1
+   @students.each_with_index do |student, i|
+      puts "#{i + 1}. #{student[:name]}, (#{student[:cohort]} cohort)"
     end
   end
 end
 
 def print_footer
   if @students.length == 1
-    puts "Overall, we have 1 great student"
+    puts 'Overall, we have 1 great student'
   else
     puts "Overall, we have #{@students.count} great students"
   end
 end
 
 try_load_students
-# is it working as it should do when i try to load the students?
-#  i think i have amended the right files for students.csv to be the default - load, save and try to load
 interactive_menu
