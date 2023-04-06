@@ -1,3 +1,5 @@
+require 'csv'
+
 @default_filename = 'students.csv'
 @students = [
   # {name: "Dr Evil", cohort: "July"},
@@ -125,22 +127,23 @@ def save_students
   puts "which file would you like to save to?"
   filename = gets.chomp
 
-  file = File.open(filename, 'w') do |file|
-    @students.each do |student|
-      student_data = [student[:name], student[:cohort]]
-      csv_line = student_data.join(',')
-      file.puts csv_line
+  CSV.open(filename, 'w') do |csv|
+      csv << [student[:name], student[:cohort]]
     end
-  end
   puts "Your file has been saved successfully to #{filename}"
 end
 
 def load_students(filename = @default_filename)
-  file = File.open(filename, 'r') do |file|
-    file.readlines.each do |line|
-      name, cohort = line.chomp.split(',')
+  if File.exists?(filename)
+  CSV.open(filename, 'r') do |csv|
+    csv.readlines.each do |line|
+      name, cohort = line
       add_student(name, cohort)
+      end
     end
+  else 
+    puts "#{filename} was not found - #{@default_filename} has been loaded by default."
+    load_students(@default_filename)
   end
   puts 'Your file has loaded successfully'
 end
@@ -150,7 +153,7 @@ def try_load_students
   if filename.nil?
     puts "We need a file name - #{@default_filename} has been loaded by default."
     load_students(@default_filename)
-  elsif File.exist?(filename)
+  elsif CSV.exist?(filename)
     load_students(filename)
     puts "Loaded #{@students.count} from #{filename}"
   else
