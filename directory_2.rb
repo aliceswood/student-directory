@@ -18,8 +18,8 @@ def print_menu
   puts 'Main Menu'
   puts '1. Input the students'
   puts '2. Show the students'
-  puts '3. Save the list of students to students.csv'
-  puts '4. Load the list from students.csv'
+  puts '3. Save the list of students to file'
+  puts '4. Load the list from file'
   puts '9. Exit'
 end
 
@@ -32,7 +32,14 @@ def process(selection)
   when '3'
     save_students
   when '4'
-    load_students
+    puts "which file would you like to load?"
+    load_file = gets.chomp
+    if !File.exist?(load_file) || load_file.empty?
+      puts 'file not found - loading students.csv by default'
+      load_students
+    else
+      load_students(load_file)
+    end
   when '9'
     exit
   else
@@ -115,14 +122,17 @@ def show_students
 end
 
 def save_students
-  file = File.open(@default_filename, 'w')
+  puts "which file would you like to save to?"
+  filename = gets.chomp
+
+  file = File.open(filename, 'w')
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(',')
     file.puts csv_line
   end
   file.close
-  puts 'Your file has been saved successfully!'
+  puts "Your file has been saved successfully to #{filename}"
 end
 
 def load_students(filename = @default_filename)
@@ -177,5 +187,5 @@ def print_footer
   end
 end
 
-try_load_students
+
 interactive_menu
